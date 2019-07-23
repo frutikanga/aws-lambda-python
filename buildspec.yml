@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - echo "Packaging template"
-      - export BUCKET=lambda-deployment-artifacts-felix
+      - export BUCKET=lambda-deployment-artifacts-us-east-1
       - aws cloudformation package --template-file template.yml --s3-bucket $BUCKET --output-template-file outputtemplate.yml
 artifacts:
   type: zip
