@@ -7,8 +7,8 @@ Resources:
     Properties:
       Handler: lambda_function.lambda_handler
       Runtime: python3.7
-      CodeUri: ../src/
-      Description: 'Lambda function to deregister unused amis'
+      CodeUri: ./
+      Description: 'Lambda function to list ec2 instances'
       MemorySize: 258
       Timeout: 600
       Events:
