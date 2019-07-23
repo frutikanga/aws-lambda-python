@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Update OS"
+      - echo "Install pip package for build"
+      - pip3 install --upgrade pip
+      - pip3 install -r requirements-build.txt
+  build:
+    commands:
+      - echo "Packaging template"
+      - export BUCKET=lambda-deployment-artifacts-felix
+      - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
+artifacts:
+  type: zip
+  files:
+    - template.yaml
+    - outputtemplate.yaml
